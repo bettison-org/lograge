@@ -46,7 +46,7 @@ module Lograge
           { status: status.to_i }
         elsif (error = payload[:exception])
           exception, message = error
-          { status: get_error_status_code(exception), error: "#{exception}: #{message}" }
+          { status: get_error_status_code(exception), error: "#{exception}: #{message}", exception_object: exception }
         else
           { status: default_status }
         end
